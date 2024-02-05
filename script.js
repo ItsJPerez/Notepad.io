@@ -1,7 +1,18 @@
 const notesContainer = document.querySelector('.notes-container');
 const createNote = document.getElementById('create-btn');
-const deleteNote = document.getElementById('delete-icon')
-const note = document.querySelector('.input-box')
+let note = document.querySelector('.input-box')
+
+    let showNote = () => {
+        notesContainer.innerHTML = localStorage.getItem('note');
+    }
+
+    showNote();
+
+
+    let updateStorage = () => {
+        localStorage.setItem('note', notesContainer.innerHTML)
+    }
+
 
     createNote.addEventListener('click', ()=>{
         let inputBox = document.createElement('p');
@@ -12,9 +23,23 @@ const note = document.querySelector('.input-box')
         notesContainer.appendChild(inputBox).appendChild(img)
     })
 
+    notesContainer.addEventListener('click', function(e){
+        if(e.target.tagName === 'IMG'){
+            e.target.parentElement.remove();
+            updateStorage();
+        } else if(e.target.tagName === 'P'){
+            note = document.querySelectorAll('.input-box')
+            note.forEach(nt => {
+                nt.onkeyup = function(){
+                    updateStorage()
+                }
+            })
+        }
+    })
 
-
-
-//Able to create new Paragraph when pressing our create note button
-//Able to delete it  with the trash icon  next to it when we press it
-//Able to save the notes to localStorage so they are still available when we either close/refresh our notes app
+    document.addEventListener('keydown', event => {
+        if(event.key === 'Enter'){
+            document.execCommand('insertLineBreak');
+            event.preventDefault();
+        }
+    })
