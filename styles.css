@@ -12,6 +12,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #00AFF0;
   }
   
   img, picture, video, canvas, svg {
@@ -31,30 +32,61 @@
    /* Styles */
    .app-header{
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(246, 246, 246);
+    font-size: 45px;
    }
    .parent{
-    border: 2px solid red;
+    /* border: 2px solid red; */
     padding: 1rem;
     width: 75%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
    }
    .child{
-    border: 2px solid blue;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
     margin-bottom: 1rem;
    }
+   .ready-heading{
+    font-size: 30px;
+    text-transform: capitalize;
+    color: white;
+   }
    .btn{
-    padding: .2rem;
-    font-size: 16px;
+    background:#252525;
+    color: #00AFF0;
+    margin: 20px;
+    padding: .6rem;
+    font-size: 18px;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
    }
    svg{
     height: 20px;
-    margin-left: .5rem;
+    margin-left: .8rem;
+   }
+   
+   /* .notes-container{
+    border: 2px solid blue;
+   } */
+   .input-box{
+    /* display: none; */
+    background-color: white;
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    min-height: 150px;
+    padding: 20px;
+    margin: 20px;
+    outline: none;
+    border-radius: 5px;
+   }
+   .input-box > img{
+    position: absolute;
+    width: 25px;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
    }
