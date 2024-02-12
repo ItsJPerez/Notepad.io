@@ -5,14 +5,12 @@ let note = document.querySelector('.input-box')
     let showNote = () => {
         notesContainer.innerHTML = localStorage.getItem('note');
     }
-
     showNote();
 
 
     let updateStorage = () => {
         localStorage.setItem('note', notesContainer.innerHTML)
     }
-
 
     createNote.addEventListener('click', ()=>{
         let inputBox = document.createElement('p');
