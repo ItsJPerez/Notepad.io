@@ -13,17 +13,24 @@ let note = document.querySelector('.input-box')
     }
 
     createNote.addEventListener('click', ()=>{
+        let div = document.createElement('div')
+        div.setAttribute('class', 'note-container')
+        //Created the two elements above
+        
         let inputBox = document.createElement('p');
         let img = document.createElement('img');
         inputBox.className = 'input-box';
         inputBox.setAttribute('contenteditable', 'true');
         img.src = 'Image/delete-icon.png';
-        notesContainer.appendChild(inputBox).appendChild(img)
+        div.append(inputBox);
+        notesContainer.appendChild(div).appendChild(inputBox).appendChild(img)
     })
+
 
     notesContainer.addEventListener('click', function(e){
         if(e.target.tagName === 'IMG'){
-            e.target.parentElement.remove();
+            let theDiv = document.querySelector('.note-container');
+            theDiv.remove()
             updateStorage();
         } else if(e.target.tagName === 'P'){
             note = document.querySelectorAll('.input-box')
@@ -34,6 +41,7 @@ let note = document.querySelector('.input-box')
             })
         }
     })
+    
 
     document.addEventListener('keydown', event => {
         if(event.key === 'Enter'){
